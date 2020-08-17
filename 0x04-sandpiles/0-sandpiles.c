@@ -1,35 +1,25 @@
 #include "sandpiles.h"
+
 /**
- * verify_zeros - verify if pass me a zero sandpile
- * @grid: Grid to verificate
- * Return: 1 if not is a zero, 0 if not is.
+ * _print_grid - the a grid
+ * @grid: grid to print
+ * Return: Nothing
  */
-int verify_zeros(int grid[3][3])
+void _print_grid(int grid[3][3])
 {
-	int zero1[3][3] = {
-		{0, 0, 0},
-		{0, 0, 0},
-		{0, 0, 0}
-	};
+	int i, j;
 
-	int zero2[3][3] = {
-		{2, 1, 2},
-		{1, 0, 1},
-		{2, 1, 2}
-	};
-
-	for (int i = 0; i < 3; i++)
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (j = 0; j < 3; j++)
 		{
-			if (grid[i][j] != zero1[i][j] &&
-			    grid[i][j] != zero2[i][j])
-				return (0);
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
 		}
+		printf("\n");
 	}
-	return (1);
 }
-
 
 /**
  * checker_estable - verificate if the sandpile is stable
@@ -118,21 +108,12 @@ void stabilizator(int grid1[3][3], int grid2[3][3])
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int flag = 1;
-
-	if (verify_zeros(grid1) == 1 || verify_zeros(grid2) == 1)
-	{
-		sum_grid(grid1, grid2);
-		return;
-	}
-
 	sum_grid(grid1, grid2);
 
-	while (flag == 1)
+	while (checker_estable(grid1))
 	{
 		printf("=\n");
-		print_grid(grid1);
+		_print_grid(grid1);
 		stabilizator(grid1, grid2);
-		flag = checker_estable(grid1);
 	}
 }
