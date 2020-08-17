@@ -28,9 +28,11 @@ void _print_grid(int grid[3][3])
  */
 int checker_estable(int grid1[3][3])
 {
-	for (int i = 0; i < 3; i++)
+	int i, j;
+
+	for ( i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (j = 0; j < 3; j++)
 		{
 			if (grid1[i][j] >= 4)
 				return (1);
@@ -47,9 +49,11 @@ int checker_estable(int grid1[3][3])
  */
 void sum_grid(int grid1[3][3], int grid2[3][3])
 {
-	for (int i = 0; i < 3; i++)
+	int i, j;
+
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (j = 0; j < 3; j++)
 		{
 			grid1[i][j] += grid2[i][j];
 		}
@@ -64,19 +68,20 @@ void sum_grid(int grid1[3][3], int grid2[3][3])
  */
 void stabilizator(int grid1[3][3], int grid2[3][3])
 {
+	int i, j;
     /* Convert the second grid in 0 to save the changes of grid1*/
-	for (int i = 0; i < 3; i++)
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (j = 0; j < 3; j++)
 		{
 			grid2[i][j] = 0;
 		}
 	}
 
     /* Make the sum by slot */
-	for (int i = 0; i < 3; i++)
+	for (i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (j = 0; j < 3; j++)
 		{
 			if (grid1[i][j] >= 4)
 			{
