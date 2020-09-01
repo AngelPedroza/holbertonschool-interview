@@ -36,7 +36,8 @@ try:
         except:
             pass
 
-        print_status(status_dict, file_size)
+    print_status(status_dict, file_size)
 
 except KeyboardInterrupt:
     print_status(status_dict, file_size)
+    raise
