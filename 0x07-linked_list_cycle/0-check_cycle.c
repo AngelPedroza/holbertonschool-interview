@@ -7,6 +7,9 @@ int check_cycle(listint_t *list)
 {
 	listint_t *bunny = list, *turtle = list;
 
+	if (!list)
+		return (0);
+
 	while (turtle->next && bunny->next)
 	{
 		turtle = turtle->next;
