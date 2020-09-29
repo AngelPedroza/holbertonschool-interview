@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include "slide_line.h"
 
-void _print_array(int const *array, size_t size)
-{
-    size_t i;
-
-    printf("Line: ");
-    for (i = 0; i < size; i++)
-        printf("%s%d", i > 0 ? ", " : "", array[i]);
-    printf("\n");
-}
 
 /**
  * put_together - Sum a line that wil be slided of a specific direction
@@ -102,6 +93,7 @@ void merge_line(int *line, size_t size, int direction)
  * @line: line points to an array of integers containing size elements
  * @size: size of the array
  * @direction: direction to merge the elements
+ * Return: 1 if is succes or 0 if it fails
  */
 int slide_line(int *line, size_t size, int direction)
 {
