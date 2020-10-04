@@ -37,7 +37,7 @@ void menger(int level)
 	{
 		for (j = 0; j < limit; j++)
 		{
-			One(i, j) == 1 ? printf("%c", '#') : printf("%c", ' ');
+			verify_module(i, j) == 1 ? printf("%c", '#') : printf("%c", ' ');
 		}
 		printf("\n");
 	}
