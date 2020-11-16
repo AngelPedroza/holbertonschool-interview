@@ -7,23 +7,25 @@ request(url, (error, response, body) => {
     const res = JSON.parse(body);
     const characters = res.characters;
     if (characters.length > 0) {
-      characterRequest(characters);
+      characterRequest(0, characters[0], characters, characters.length);
     }
   } else {
     console.log(error);
   }
 });
 
-function characterRequest (characters) {
-  for (const i in characters) {
-    request(characters[i], (error, response, body) => {
-      if (!error) {
-        const resChar = JSON.parse(body);
-        const name = resChar.name;
-        console.log(name);
-      } else {
-        console.log(error);
-      }
-    });
+function characterRequest (idx, urlChar, characters, limit) {
+  if (idx === limit) {
+    return;
   }
+  request(urlChar, function (error, response, body) {
+    if (!error) {
+      const response = JSON.parse(body);
+      console.log(response.name);
+      idx++;
+      characterRequest(idx, characters[idx], characters, limit);
+    } else {
+      console.error('error:', error);
+    }
+  });
 }
