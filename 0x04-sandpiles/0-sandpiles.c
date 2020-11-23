@@ -101,6 +101,10 @@ void stabilizator(int grid1[3][3], int grid2[3][3])
 			}
 		}
 	}
+	printf("esta es la grilla solo repartida de los 4's:\n");
+	_print_grid(grid1);
+	printf("Esta es la suma de los elementos:\n");
+	_print_grid(grid2);
 
 	sum_grid(grid1, grid2);
 }
