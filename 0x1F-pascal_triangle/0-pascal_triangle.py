@@ -8,4 +8,3 @@ def pascal_triangle(n):
         big.append(a)
 
     return big
-
