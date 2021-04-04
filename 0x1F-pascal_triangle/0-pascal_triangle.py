@@ -22,6 +22,8 @@ def combination(n, r):
 
 def pascal_triangle(n):
     """Create the pascal triangle"""
+    if n <= 0:
+        return [[]]
     result = []
     for count in range(n):
         row = []
