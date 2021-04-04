@@ -20,7 +20,7 @@ def combination(n, r):
     return int(a)
 
 
-def pascal_triangle(n):
+def __pascal_triangle(n):
     """Create the pascal triangle"""
     if n <= 0:
         return [[]]
@@ -33,3 +33,16 @@ def pascal_triangle(n):
         result.append(row)
 
     return result
+
+
+def pascal_triangle(n):
+    myList = [[1]]
+    if (n <= 0):
+        return [[]]
+    for i in range(1, n):
+        myList.append([1])
+        for b in range(1, i):
+            tmp = int(myList[i - 1][b]) + int(myList[i - 1][b - 1])
+            myList[i].append(str(tmp))
+        myList[i].append(1)
+    return myList
